@@ -1,0 +1,22 @@
+{
+  "name": "angular-datetime-keep-offset",
+  "version": "0.0.1",
+  "homepage": "https://github.com/Recras/angular-datetime-keep-offset",
+  "authors": [
+    "https://github.com/Recras/angular-datetime-keep-offset/graphs/contributors"
+  ],
+  "description": "An Angularjs directive that maintains an offset between 2 Datetimes",
+  "main": "src/modelKeepOffset.js",
+  "moduleType": [],
+  "keywords": [
+    "angularjs"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
