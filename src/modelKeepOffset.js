@@ -19,7 +19,9 @@ angular.module('modelKeepOffset', [])
                     if (value.getTime() !== oldVal.getTime()) {
                         var diff = (value - oldVal) / 1000;
                         var offsetModel = getmodelKeepOffset();
-                        offsetModel.setSeconds(offsetModel.getSeconds() + diff);
+                        if (offsetModel) {
+                            offsetModel.setSeconds(offsetModel.getSeconds() + diff);
+                        }
                         oldVal = angular.copy(value);
                     }
                     return value;
