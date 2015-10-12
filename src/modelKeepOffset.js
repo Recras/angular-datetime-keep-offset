@@ -16,7 +16,7 @@ angular.module('modelKeepOffset', [])
                 var oldVal = angular.copy(getModel());
 
                 ctrl.$parsers.push(function(value) {
-                    if (value.getTime() !== oldVal.getTime()) {
+                    if (value && oldVal && value.getTime() !== oldVal.getTime()) {
                         var diff = (value - oldVal) / 1000;
                         var offsetModel = getmodelKeepOffset();
                         if (offsetModel) {
