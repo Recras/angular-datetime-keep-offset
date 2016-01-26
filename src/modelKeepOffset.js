@@ -13,7 +13,11 @@ angular.module('modelKeepOffset', [])
                     return scope.$eval(attr.modelKeepOffset);
                 };
 
-                var oldVal = angular.copy(getModel());
+                var oldVal;
+                var setOldVal = function() {
+                    oldVal = angular.copy(getModel());
+                };
+                setOldVal();
 
                 ctrl.$parsers.push(function(value) {
                     if (value && oldVal && value.getTime() !== oldVal.getTime()) {
@@ -22,9 +26,13 @@ angular.module('modelKeepOffset', [])
                         if (offsetModel) {
                             offsetModel.setSeconds(offsetModel.getSeconds() + diff);
                         }
-                        oldVal = angular.copy(value);
+                        setOldVal();
                     }
                     return value;
+                });
+
+                scope.$watch(getModel, function() {
+                    setOldVal();
                 });
             }
         };
